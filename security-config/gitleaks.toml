@@ -1,0 +1,11 @@
+title = "Configuration DevSecOps Gitleaks"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Exceptions et chemins exclus de l'analyse"
+paths = [
+  '''reports/.*\.json''',
+  '''node_modules/.*'''
+]
