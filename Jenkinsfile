@@ -21,14 +21,15 @@ pipeline {
                 '''
             }
         }
-
         stage('Security Analysis') {
             steps {
                 bat '''
-                    npm audit --json > %REPORT_DIR%/npm-audit-report.json || exit 0
+                    call npm i --package-lock-only || exit 0
+                    call npm audit --json > %REPORT_DIR%/npm-audit-report.json || exit 0
                 '''
             }
         }
+      
 
         stage('Additional Security Check') {
             steps {
